@@ -36,10 +36,11 @@ def ingresa_secuencia():
     print("Ingresa la secuencia " + nom + " :\n ")
     while( len(s) < N):
     	number = input(( nom +" = " + str(s) + ": "))
-    	try:
-    		number = int(number)
-    	except ValueError :
-    		number = float(number)
+    	#try:
+    	number = complex(number)
+    	#except ValueError :
+    	#	number = float(number)
+        
 
     	s.append(number)
     clearScreen()
@@ -109,6 +110,3 @@ print("\nFFT: ")
 print(fft(funcion))
 print("\nIFFT: ")
 print(ifft(funcion))
-
-print("\nComprobación: ")
-print(ifft(fft(funcion)))
