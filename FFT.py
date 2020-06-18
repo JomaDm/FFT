@@ -99,14 +99,18 @@ def ifft(funcion):
         resultado = [0 for i in range(n)]                  
 
         for i in range(n//2):
-            w = complex(mt.cos(2*mt.pi*i/(n)),mt.sin(-2*mt.pi*i/(n))) 
-            resultado[i] = ((pares[i]+w*impares[i])/n).conjugate()       
-            resultado[n//2 + i] = ((pares[i]-w*impares[i])/n).conjugate()
+            w = complex(mt.cos(2*mt.pi*i/(n)),mt.sin(2*mt.pi*i/(n))) 
+            resultado[i] = ((pares[i]+w*impares[i])/n)#.conjugate()
+            resultado[n//2 + i] = ((pares[i]-w*impares[i])/n)#.conjugate()
 
         return resultado
 
 funcion = ingresa_secuencia()
+#print("\nFFT(numpy): ")
+#print(numpy.fft.fft(funcion))
 print("\nFFT: ")
 print(fft(funcion))
+#print("\nIFFT(numpy): ")
+#print(numpy.fft.ifft(funcion))
 print("\nIFFT: ")
 print(ifft(funcion))
